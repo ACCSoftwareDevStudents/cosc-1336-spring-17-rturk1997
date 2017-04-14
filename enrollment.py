@@ -1,12 +1,20 @@
-from course import Course
-from student import Student
 
-class Enrollment():
-    def __init__(self, enroll_id, student_id, course_id):
+class Enrollment:
+
+    def __init__(self, enroll_id, student, course):
+
         self.enroll_id = enroll_id
-        self.student_id = student_id 
-        self.course_id = course_id
-        
+        self.student = student
+        self.course = course
+        self.letter_grade = ''
+
+    def print_record(self):
+
+        print(self.enroll_id,
+              format(self.student.last_name, '15'),
+              format(self.student.first_name, '15'),
+              format(self.course.title, '20'),
+              format(self.letter_grade, '5'))
 
 
 
