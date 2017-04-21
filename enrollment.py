@@ -6,7 +6,7 @@ class Enrollment:
         self.enroll_id = enroll_id
         self.student = student
         self.course = course
-        self.letter_grade = ''
+        self.grade = ''
 
     def print_record(self):
 
@@ -14,7 +14,7 @@ class Enrollment:
               format(self.student.last_name, '15'),
               format(self.student.first_name, '15'),
               format(self.course.title, '20'),
-              format(self.letter_grade, '5'))
+              format(self.grade, '5'))
 
 
 

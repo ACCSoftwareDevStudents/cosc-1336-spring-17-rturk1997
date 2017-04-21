@@ -3,50 +3,59 @@ from student import Student
 from course import Course
 from enrollment import Enrollment
 class Transcript:
-    def __init__(self, enrollments, students):
+    def __init__(self, enrollments):
         self.enrollments = enrollments
-        self.students = students
-    def print_transcript(self):
 
-        s = Student
-        c = Course
-        e = Enrollment 
-        print(s.first_name," ",s.last_name)
-        for key in self.enrollments:
-            if self.enrollments[key].student_id == self.student_id:
-                self.credit_points = self.__get_credit_points(self, e.letter_grade)
-                self.total_credit_points += self.credit_points
-                if self.credit_points.isdigit() == True:
-                    self.grade_points = self.credit_points * c.credit_hour
-                else:
-                    self.grade_points = " "
-                self.total_credit_hours += c.credit_hour
-            lines_indiv += (c.title, c.credit_hour,self.credit_points, self.grade_points,'\n')  
-            print("Class", "Credit Hours", "Credit Points", "Grade Points", "Grade", format(sep='\t'))
-            print(lines_indiv)
-            print("="*30)
-            print('\t', self.total_credit_hours, '\t', self.total_credit_points)
-            if self.total_credit_hours >= 1:
-                print("GPA: " + format((self.total_credit_points/self.total_credit_hours),'.2f'))
-            else:
-                print("GPA: ")
+    def print_transcript(self, student):
+            
+        print("Student: ", student.first_name," ",student.last_name)
+        total_credit_hours = 0
+        total_grade_points = 0
+        print("Course         ", "Credit hours", "Credit Points", "Grade Points", "Letter Grade")
+        for e in self.enrollments.values():
+            if e.student.student_id == student.student_id:
+                
+                if e.grade in ["A","B","C","D","F"]:
+                    total_credit_hours += e.course.credit_hours
+                    
+                credit_points = self.__get_credit_points( e.grade)
+                
+                grade_points = e.course.credit_hours * credit_points
+
+                total_grade_points += grade_points
+                
+                
+                print(format(e.course.title, '15'),
+                      format(e.course.credit_hours, '13'),
+                      format(credit_points, '12'),
+                      format(grade_points, '12'),
+                      format(' ' + e.grade, '12'))
+            
+            
+            
+        print("="*30)
+        print(format(total_credit_hours, '26'),
+              format(total_grade_points, '26'))
+            
+        if total_credit_hours >= 1:
+            print("GPA: " + format(total_grade_points/total_credit_hours,'.2f'))
         else:
-            print("ID not found")
+            print("GPA: ")
+       
 
-    def __get_credit_points(self, letter_grade):
-##        see your homeworks for get credit points if block
-        if letter_grade == 'A' or letter_grade == 'a':
-            return '4'
-        elif letter_grade == 'B' or letter_grade == 'b':
-            return '3'
-        elif letter_grade == 'C' or letter_grade == 'c':
-            return '2'
-        elif letter_grade == 'D' or letter_grade == 'd':
-            return '1'
-        elif letter_grade == 'F' or letter_grade == 'f':
-            return '0'
-        elif letter_grade == 'W' or letter_grade == 'w':
-            return " "
+    def __get_credit_points(self, grade):
+        credit_points = 0
+
+        if grade == 'A':
+            credit_points = 4
+        elif grade == 'B':
+            credit_points = 3
+        elif grade == 'C':
+            credit_points = 2
+        elif grade == 'D':
+            credit_points = 1
+
+        return credit_points
 
 
 
