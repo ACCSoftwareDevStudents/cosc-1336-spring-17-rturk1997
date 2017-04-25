@@ -27,7 +27,7 @@ class Gradebook:
         choice = 0
 
         print("="*47)
-        print("="*10, "Welcome to GPA CALC v0.12", "="*10)
+        print("="*10, "Welcome to GPA CALC v0.13", "="*10)
         print('\t'*2, "ACEDEMIC MAIN MENU", '\t'*2)
         while choice != QUIT_MENU:
             self.menu_selections()
