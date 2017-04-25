@@ -1,8 +1,8 @@
-from student import Student
-from course import Course
-from person import Person
-from professor import Professor
-from enrollment import Enrollment
+from model.student import Student
+from model.course import Course
+from model.person import Person
+from model.professor import Professor
+from model.enrollment import Enrollment
 
 class SchoolInitializer:
     

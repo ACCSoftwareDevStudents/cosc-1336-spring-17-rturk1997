@@ -1,7 +1,7 @@
 
-from student import Student
-from course import Course
-from enrollment import Enrollment
+from model.student import Student
+from model.course import Course
+from model.enrollment import Enrollment
 class Transcript:
     def __init__(self, enrollments):
         self.enrollments = enrollments

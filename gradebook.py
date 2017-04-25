@@ -1,11 +1,11 @@
-from person import Person
-from course import Course
-from student import Student
-from professor import Professor
-from enrollment import Enrollment
-from transcript import Transcript
-from school_initializer import SchoolInitializer
-from school_db import SchoolDB
+from model.person import Person
+from model.course import Course
+from model.student import Student
+from model.professor import Professor
+from model.enrollment import Enrollment
+from model.transcript import Transcript
+from data.school_initializer import SchoolInitializer
+from data.school_db import SchoolDB
 
 class Gradebook:
 
