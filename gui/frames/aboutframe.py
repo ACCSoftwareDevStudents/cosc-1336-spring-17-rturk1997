@@ -6,5 +6,8 @@ class AboutFrame(Frame):
 
     def __init__(self, parent):
         Frame.__init__(self, parent)
+        label_text = "Inspired by Microsoft's Contoso University example program \n",\
+        "LINK HERE \n",\
+        "NOT ORIGINAL WORK"
 
-        Label(self, text="About Frame").grid(row=0, column=0, sticky="w")
+        Label(self, text=label_text).grid(row=0, column=0, sticky="w")
